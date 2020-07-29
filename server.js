@@ -1,4 +1,5 @@
 var express = require("express");
+var compression = require('compression')
 
 var PORT = process.env.PORT || 3001;
 
@@ -10,6 +11,8 @@ app.use(express.static("public"));
 // Parse application body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(compression());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
